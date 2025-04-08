@@ -15,12 +15,19 @@ namespace OOPConsoleProject.Scenes
         public ShipScene() 
         {
             name = "Ship";
+            ship = new Ship();
+
+            player = new Player(3, 3);
+            player.position = new Vector2(3, 3);
+            player.IsMovableMap = ship.Map;
         }
 
         public override void Render()
         {
             Console.Clear();
             ship.PrintMap();
+
+            player.Print();
         }
         public override void Input()
         {
@@ -33,7 +40,7 @@ namespace OOPConsoleProject.Scenes
 
         public override void Result()
         {
-            var playerPos = (player.PosX, player.PosY);
+            var playerPos = (player.position.x, player.position.y);
             if (ship.Room.TryGetValue(playerPos, out ShipRoomLocation room))
             {
                 switch (room)

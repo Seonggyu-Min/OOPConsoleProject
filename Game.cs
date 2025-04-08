@@ -20,6 +20,8 @@ namespace OOPConsoleProject
 
             gameOver = false;
 
+            sceneDic = new Dictionary<string, BaseScene>();
+
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Ship", new ShipScene());
 

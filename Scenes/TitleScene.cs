@@ -33,7 +33,7 @@ namespace OOPConsoleProject.Scenes
 
         public override void Result()
         {
-            Game.ChangeScene("ShipScene");
+            Game.ChangeScene("Ship");
         }
     }
 }

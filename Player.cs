@@ -12,18 +12,17 @@ namespace OOPConsoleProject
         public int PosY { get; private set; }
 
         public Vector2 position { get; set; }
-        public bool[,] IsMovableMap { get; private set; }
+        public bool[,] IsMovableMap { get; set; }
 
 
         public Player(int x, int y)
         {
-            PosX = x;
-            PosY = y;
+            position = new Vector2(x, y);
         }
 
         public void Print()
         {
-            Console.SetCursorPosition(PosX, PosY);
+            Console.SetCursorPosition(position.x, position.y);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write('P');
             Console.ResetColor();
