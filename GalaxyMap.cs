@@ -27,6 +27,23 @@ namespace OOPConsoleProject
             galaxyMap[10] = new List<int> { 11 };
         }
 
-        
+
+        public void PrintGalaxyMap()
+        {
+            string[] mapLines =
+            {
+                "           [0]       ",
+                "          /   \\     ",
+                "        [1]    [2]   ",
+                "       /  \\    |    ",
+                "    [3]   [4]  [5]   ",
+                "     |     | \\ |    ",
+                "    [6]   [7]  [8]   ",
+                "       \\ /     |    ",
+                "       [9]    [10]   ",
+                "         \\    /     ",
+                "          [11]       ",
+            };
+        }
     }
 }
