@@ -11,6 +11,9 @@ namespace OOPConsoleProject
     {
         public char[,] MapData { get; private set; }
         public bool[,] Map { get; private set; }
+
+        public Dictionary<(int x, int y), ShipRoomLocation> Room { get; private set; }
+
         public Ship()
         {
             MapData = new char[7, 7]
@@ -33,6 +36,12 @@ namespace OOPConsoleProject
                     Map[y, x] = MapData[y, x] == '#' ? false : true;
                 }
             }
+
+            Room = new Dictionary<(int x, int y), ShipRoomLocation>
+            {
+                { (1, 3), ShipRoomLocation.AddonBay },
+                { (5, 3), ShipRoomLocation.Cockpit }
+            };
         }
         
         public void PrintMap()
