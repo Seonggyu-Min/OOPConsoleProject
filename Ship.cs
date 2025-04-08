@@ -34,6 +34,19 @@ namespace OOPConsoleProject
                 }
             }
         }
+        
+        public void PrintMap()
+        {
+            for (int y = 0; y < MapData.GetLength(0); y++)
+            {
+                for (int x = 0; x < MapData.GetLength(1); x++)
+                {
+                    Console.Write(MapData[y, x]);
+                }
+                Console.WriteLine();
+            }
+        }
+
     }
 
 }
