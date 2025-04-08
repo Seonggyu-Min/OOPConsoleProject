@@ -27,7 +27,7 @@ namespace OOPConsoleProject
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Ship", new ShipScene());
             sceneDic.Add("Cockpit", new CockpitScene());
-
+            // sceneDic.Add("GalaxyInfo", new GalaxyInfoScene());
 
             curScene = sceneDic["Title"];
 
@@ -61,11 +61,11 @@ namespace OOPConsoleProject
             curScene.Enter();
         }
 
-        public static void PushScene(string sceneName)
+        public static void PushScene(BaseScene scene)
         {
             sceneStack.Push(curScene);
             curScene.Exit();
-            curScene = sceneDic[sceneName];
+            curScene = scene;
             curScene.Enter();
         }
 
