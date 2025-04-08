@@ -21,6 +21,7 @@ namespace OOPConsoleProject
             gameOver = false;
 
             sceneDic.Add("Title", new TitleScene());
+            sceneDic.Add("Ship", new ShipScene());
         }
 
         public static void Run()

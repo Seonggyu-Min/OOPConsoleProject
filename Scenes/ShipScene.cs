@@ -33,7 +33,19 @@ namespace OOPConsoleProject.Scenes
 
         public override void Result()
         {
-
+            var playerPos = (player.PosX, player.PosY);
+            if (ship.Room.TryGetValue(playerPos, out ShipRoomLocation room))
+            {
+                switch (room)
+                {
+                    case ShipRoomLocation.Cockpit:
+                        Game.ChangeScene("Cockpit");
+                        break;
+                    case ShipRoomLocation.AddonBay:
+                        Game.ChangeScene("AddonBay");
+                        break;
+                }
+            }
         }
     }
 }
