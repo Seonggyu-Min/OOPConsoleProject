@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOPConsoleProject.Scenes
+{
+    public class CockpitScene : BaseScene
+    {
+        private ConsoleKey input;
+
+        GalaxyMapPointer galaxyMapPointer;
+        GalaxyMap galaxyMap;
+
+        public CockpitScene()
+        {
+            name = "Cockpit";
+            
+            galaxyMap = new GalaxyMap();
+
+            galaxyMapPointer = new GalaxyMapPointer(5, 1);
+            galaxyMapPointer.PointerPosition = new Vector2(5, 1);
+            galaxyMapPointer.IsMovableMap = galaxyMap.Map;
+        }
+
+
+        public override void Render()
+        {
+            Console.Clear();
+            galaxyMap.PrintGalaxyMap();
+            galaxyMapPointer.Print();
+        }
+        public override void Input()
+        {
+            input = Console.ReadKey(true).Key;
+        }
+        public override void Update()
+        {
+            galaxyMapPointer.Move(input);
+
+        }
+        public override void Result()
+        {
+            var pointerPos = (galaxyMapPointer.PointerPosition.x, galaxyMapPointer.PointerPosition.y);
+            if (galaxyMap.GalaxyRoom.TryGetValue(pointerPos, out GalaxyLocation galaxyRoom))
+            {
+                switch (galaxyRoom)
+                {
+                    case GalaxyLocation.Encounter:
+                        Game.ChangeScene("Encounter");
+                        break;
+                    case GalaxyLocation.Fuel:
+                        Game.ChangeScene("Fuel");
+                        break;
+                    case GalaxyLocation.Oxygen:
+                        Game.ChangeScene("Oxygen");
+                        break;
+                    case GalaxyLocation.End:
+                        Game.ChangeScene("End");
+                        break;
+                }
+            }
+        }
+    }
+}
