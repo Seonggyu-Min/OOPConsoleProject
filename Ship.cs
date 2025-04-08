@@ -7,36 +7,32 @@ using System.Threading.Tasks;
 
 namespace OOPConsoleProject
 {
-
     public class Ship
     {
-        private char[,] mapData = new char[,]
-        {
-                { '#', '#', '#', '#', '#', '#', '#' },
-                { '#', ' ', '#', ' ', '#', ' ', '#' },
-                { '#', ' ', ' ', ' ', ' ', ' ', '#' },
-                { '#', ' ', ' ', ' ', ' ', ' ', '#' },
-                { '#', ' ', ' ', ' ', ' ', ' ', '#' },
-                { '#', ' ', '#', ' ', '#', ' ', '#' },
-                { '#', '#', '#', '#', '#', '#', '#' },
-        };
-
-        private bool[,] map = new bool[7, 7];
-
-        
-
+        public char[,] MapData { get; private set; }
+        public bool[,] Map { get; private set; }
         public Ship()
         {
-            for (int y = 0; y < mapData.GetLength(0); y++)
+            MapData = new char[7, 7]
             {
-                for (int x = 0; x < mapData.GetLength(1); x++)
+                { '#', '#', '#', '#', '#', '#', '#' },
+                { '#', ' ', '#', ' ', '#', ' ', '#' },
+                { '#', ' ', ' ', ' ', ' ', ' ', '#' },
+                { '#', ' ', ' ', ' ', ' ', ' ', '#' },
+                { '#', ' ', ' ', ' ', ' ', ' ', '#' },
+                { '#', ' ', '#', ' ', '#', ' ', '#' },
+                { '#', '#', '#', '#', '#', '#', '#' },
+            };
+
+            Map = new bool[7, 7];
+
+            for (int y = 0; y < MapData.GetLength(0); y++)
+            {
+                for (int x = 0; x < MapData.GetLength(1); x++)
                 {
-                    map[y, x] = mapData[y, x] == '#' ? false : true;
+                    Map[y, x] = MapData[y, x] == '#' ? false : true;
                 }
             }
-
-
-
         }
     }
 
