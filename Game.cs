@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace OOPConsoleProject
 {
-    class Game
+    public class Game
     {
         public static bool gameOver { get; set; }
 
         private static Dictionary<string, BaseScene> sceneDic;
         private static BaseScene curScene;
+
+        private static Stack<BaseScene> sceneStack = new Stack<BaseScene>();
 
         public static void Start()
         {
@@ -47,7 +49,7 @@ namespace OOPConsoleProject
 
         public static void End()
         {
-            gameOver = true;
+            
         }
 
         public static void ChangeScene(string sceneName)
@@ -55,6 +57,24 @@ namespace OOPConsoleProject
             curScene.Exit();
             curScene = sceneDic[sceneName];
             curScene.Enter();
+        }
+
+        public static void PushScene(string sceneName)
+        {
+            sceneStack.Push(curScene);
+            curScene.Exit();
+            curScene = sceneDic[sceneName];
+            curScene.Enter();
+        }
+
+        public static void PopScene(string sceneName)
+        {
+            if (sceneStack.Count > 0)
+            {
+                curScene.Exit();
+                curScene = sceneStack.Pop();
+                curScene.Enter();
+            }
         }
     }
 }
