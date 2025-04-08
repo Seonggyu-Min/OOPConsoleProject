@@ -8,12 +8,8 @@ namespace OOPConsoleProject
 {
     public class Player
     {
-        public int PosX { get; private set; }
-        public int PosY { get; private set; }
-
         public Vector2 position { get; set; }
         public bool[,] IsMovableMap { get; set; }
-
 
         public Player(int x, int y)
         {
