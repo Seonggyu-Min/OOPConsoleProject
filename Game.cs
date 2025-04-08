@@ -8,7 +8,7 @@ namespace OOPConsoleProject
 {
     class Game
     {
-        private static bool gameOver;
+        public static bool gameOver { get; set; }
 
         public static void Start()
         {
