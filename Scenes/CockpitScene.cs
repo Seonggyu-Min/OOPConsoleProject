@@ -44,23 +44,9 @@ namespace OOPConsoleProject.Scenes
         public override void Result()
         {
             var pointerPos = (galaxyMapPointer.PointerPosition.x, galaxyMapPointer.PointerPosition.y);
-            if (galaxyMap.GalaxyRoom.TryGetValue(pointerPos, out GalaxyLocation galaxyRoom))
+            if (galaxyMap.GalaxyRoom.TryGetValue(pointerPos, out GalaxyNodeInfo nodeInfo) && input == ConsoleKey.E)
             {
-                switch (galaxyRoom)
-                {
-                    case GalaxyLocation.Encounter:
-                        Game.ChangeScene("Encounter");
-                        break;
-                    case GalaxyLocation.Fuel:
-                        Game.ChangeScene("Fuel");
-                        break;
-                    case GalaxyLocation.Oxygen:
-                        Game.ChangeScene("Oxygen");
-                        break;
-                    case GalaxyLocation.End:
-                        Game.ChangeScene("End");
-                        break;
-                }
+                Game.PushScene("GalaxyInfo");
             }
         }
     }
