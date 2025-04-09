@@ -9,6 +9,6 @@ namespace OOPConsoleProject.Enums
     public enum ShipRoomLocation
     {
         Cockpit,
-        AddonBay
+        //AddonBay
     }
 }

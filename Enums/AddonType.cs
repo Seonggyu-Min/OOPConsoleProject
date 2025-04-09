@@ -8,9 +8,9 @@ namespace OOPConsoleProject.Enums
 {
     public enum AddonType
     {
-        Interaction,
+        //Interaction,
         Fuel,
         Oxygen,
-        Radar
+        //Radar
     }
 }
