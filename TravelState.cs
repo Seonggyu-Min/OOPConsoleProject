@@ -39,15 +39,15 @@ namespace OOPConsoleProject
             {
                 { 0, new GalaxyNodeInfo(0, "Start", "시작 지점", "무사히 살아남아 지구로 귀환하세요.", true) },
                 { 1, new GalaxyNodeInfo(1, "Fuel", "연료 충전 지점", "이 은하는 연료가 풍부해보입니다. 근처에 들러 연료를 충전할 수 있을 것 같습니다.", false) },
-                { 2, new GalaxyNodeInfo(2, "Encounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) },
+                { 2, new GalaxyNodeInfo(2, "FuelEncounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) }, // 연료
                 { 3, new GalaxyNodeInfo(3, "Oxygen", "산소 충전 지점", "이 은하에는 산소가 풍부해보입니다. 근처에 들러 산소를 충전할 수 있을 것 같습니다.", false) },
-                { 4, new GalaxyNodeInfo(4, "Encounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) },
+                { 4, new GalaxyNodeInfo(4, "OxygenEncounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) }, // 산소
                 { 5, new GalaxyNodeInfo(5, "Oxygen", "산소 충전 지점", "이 은하에는 산소가 풍부해보입니다. 근처에 들러 산소를 충전할 수 있을 것 같습니다.", false) },
                 { 6, new GalaxyNodeInfo(6, "Fuel", "연료 충전 지점", "이 은하는 연료가 풍부해보입니다. 근처에 들러 연료를 충전할 수 있을 것 같습니다.", false) },
                 { 7, new GalaxyNodeInfo(7, "Fuel", "연료 충전 지점", "이 은하는 연료가 풍부해보입니다. 근처에 들러 연료를 충전할 수 있을 것 같습니다.", false) },
-                { 8, new GalaxyNodeInfo(8, "Encounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) },
-                { 9, new GalaxyNodeInfo(9, "Encounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) },
-                { 10, new GalaxyNodeInfo(10, "Encounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) },
+                { 8, new GalaxyNodeInfo(8, "FuelEncounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) }, // 연료
+                { 9, new GalaxyNodeInfo(9, "OxygenEncounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) }, // 산소
+                { 10, new GalaxyNodeInfo(10, "FuelEncounter", "외계 문명 조우 지점", "이 은하에는 발전된 문명이 살고 있습니다. 근처에 들러 대화를 나눠볼 수 있을 것 같습니다.", false) }, // 연료
                 { 11, new GalaxyNodeInfo(11, "End", "도착 지점", "지구가 눈 앞에 보이기 시작합니다.", true) },
             };
 
