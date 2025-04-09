@@ -30,12 +30,83 @@ namespace OOPConsoleProject
                 Fuel = 15;
         }
 
-
         public static void ChargeOxygen(int amount)
         {
             Oxygen += amount;
             if (Oxygen > MaxOxygen)
                 Oxygen = 15;
+        }
+        public static void ConsumeFuel(int amount)
+        {
+            Fuel -= amount;
+        }
+
+        public static void ConsumeOxygen(int amount)
+        {
+            Oxygen -= amount;
+        }
+
+        public static void PrintOxygen()
+        {
+            Console.Write("산소: ");
+            if (Oxygen < 6)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+
+                for (int i = 0; i < MaxOxygen; i++)
+                {
+                    if (i < Oxygen)
+                        Console.Write('■');
+                    else
+                        Console.Write('□');
+                }
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                for (int i = 0; i < MaxOxygen; i++)
+                {
+                    if (i < Oxygen)
+                        Console.Write('■');
+                    else
+                        Console.Write('□');
+                }
+                Console.ResetColor();
+            }
+        }
+
+
+        public static void PrintFuel()
+        {
+            Console.Write("연료: ");
+            if (Fuel < 6)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+
+                for (int i = 0; i < MaxFuel; i++)
+                {
+                    if (i < Fuel)
+                        Console.Write('■');
+                    else
+                        Console.Write('□');
+                }
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+
+                for (int i = 0; i < MaxFuel; i++)
+                {
+                    if (i < Fuel)
+                        Console.Write('■');
+                    else
+                        Console.Write('□');
+                }
+                Console.ResetColor();
+            }
         }
 
     }
