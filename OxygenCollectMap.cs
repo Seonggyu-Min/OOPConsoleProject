@@ -19,7 +19,7 @@ namespace OOPConsoleProject
                 { '#', '#', '#', '#', '#', '#', '#' },
                 { '#', ' ', '#', '&', '#', '&', '#' },
                 { '#', ' ', ' ', ' ', '&', ' ', '#' },
-                { '#', ' ', ' ', ' ', ' ', ' ', '#' },
+                { '#', 'E', ' ', ' ', ' ', ' ', '#' },
                 { '#', ' ', '&', ' ', ' ', ' ', '#' },
                 { '#', ' ', '#', ' ', '#', '&', '#' },
                 { '#', '#', '#', '#', '#', '#', '#' },
@@ -27,12 +27,14 @@ namespace OOPConsoleProject
 
             Map = new bool[7, 7];
 
+            OxygenPosition = new HashSet<(int x, int y)>();
+
             for (int y = 0; y < MapData.GetLength(0); y++)
             {
                 for (int x = 0; x < MapData.GetLength(1); x++)
                 {
                     Map[y, x] = MapData[y, x] == '#' ? false : true;
-                    if (MapData[y, x] == '*')
+                    if (MapData[y, x] == '&')
                         OxygenPosition.Add((x, y));
                 }
             }
