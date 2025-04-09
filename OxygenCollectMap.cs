@@ -11,6 +11,7 @@ namespace OOPConsoleProject
         public char[,] MapData { get; private set; }
         public bool[,] Map { get; private set; }
 
+        public HashSet<(int x, int y)> OxygenPosition { get; private set; }
         public OxygenCollectMap()
         {
             MapData = new char[7, 7]
@@ -31,6 +32,8 @@ namespace OOPConsoleProject
                 for (int x = 0; x < MapData.GetLength(1); x++)
                 {
                     Map[y, x] = MapData[y, x] == '#' ? false : true;
+                    if (MapData[y, x] == '*')
+                        OxygenPosition.Add((x, y));
                 }
             }
         }
