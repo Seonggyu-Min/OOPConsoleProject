@@ -12,6 +12,8 @@ namespace OOPConsoleProject.Scenes
         private ConsoleKey input;
         Ship ship;
         Player player;
+        Addon addon;
+        GalaxyNodeInfo nodeInfo;
 
         public ShipScene()
         {
@@ -48,15 +50,62 @@ namespace OOPConsoleProject.Scenes
             var playerPos = (player.position.x, player.position.y);
             if (ship.Room.TryGetValue(playerPos, out ShipRoomLocation room))
             {
-                switch (room)
+                EnterRoom(room);
+            }
+            if (ship.AddonLocation.TryGetValue(playerPos, out AddonType addonType))
+            {
+                EnterAddon(addonType);
+            }
+        }
+
+        public void EnterRoom(ShipRoomLocation room)
+        {
+            switch (room)
+            {
+                case ShipRoomLocation.Cockpit:
+                    Game.PushScene(new CockpitScene());
+                    break;
+                case ShipRoomLocation.AddonBay:
+                    Game.ChangeScene("AddonBay");
+                    break;
+            }
+        }
+
+        public void EnterAddon(AddonType addonType)
+        {
+            Addon selectedAddon = ship.InstalledAddons[addonType];
+            GalaxyNodeInfo currentNode = TravelState.GetCurrentNodeInfo();
+
+            if (currentNode.IsFarmed)
+            {
+                Console.SetCursorPosition(0, 12);
+                Console.WriteLine("이미 다녀온 은하입니다.");
+                Console.ReadKey(true);
+                return;
+            }
+            if ((selectedAddon.Type == AddonType.Fuel && currentNode.LocationType == "Fuel") ||
+                (selectedAddon.Type == AddonType.Oxygen && currentNode.LocationType == "Oxygen") ||
+                (selectedAddon.Type == AddonType.Interaction && currentNode.LocationType == "Encounter"))
+            {
+                switch (selectedAddon.Type)
                 {
-                    case ShipRoomLocation.Cockpit:
-                        Game.PushScene(new CockpitScene());
+                    case AddonType.Fuel:
+                        Game.PushScene(new FuelCollectionScene(selectedAddon, currentNode));
                         break;
-                    case ShipRoomLocation.AddonBay:
-                        Game.ChangeScene("AddonBay");
-                        break;
+                    //case AddonType.Oxygen:
+                    //    Game.PushScene(new OxygenCollectionScene(selectedAddon, currentNode));
+                    //    break;
+                    //case AddonType.Interaction:
+                    //    Game.PushScene(new EncounterScene(selectedAddon, currentNode));
+                    //    break;
                 }
+            }
+            else
+            {
+                // 타입이 맞지 않는 경우 메시지 출력
+                Console.SetCursorPosition(0, 12);
+                Console.WriteLine("현재 은하에서는 이 드론을 사용할 수 없습니다.");
+                Console.ReadKey(true);
             }
         }
     }
