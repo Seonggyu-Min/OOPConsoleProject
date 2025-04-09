@@ -31,6 +31,11 @@ namespace OOPConsoleProject.Scenes
             Console.Clear();
             galaxyMap.PrintGalaxyMap();
             galaxyMapPointer.Print();
+
+            Console.SetCursorPosition(0, 14);
+            ResourceManager.PrintFuel();
+            Console.WriteLine();
+            ResourceManager.PrintOxygen();
         }
         public override void Input()
         {
@@ -39,15 +44,15 @@ namespace OOPConsoleProject.Scenes
         public override void Update()
         {
             galaxyMapPointer.Move(input);
-
         }
         public override void Result()
         {
             var pointerPos = (galaxyMapPointer.PointerPosition.x, galaxyMapPointer.PointerPosition.y);
             if (galaxyMap.GalaxyRoom.TryGetValue(pointerPos, out GalaxyNodeInfo nodeInfo) && input == ConsoleKey.E)
             {
-                Game.PushScene("GalaxyInfo");
+                Game.PushScene(new GalaxyInfoScene(nodeInfo));
             }
+            Util.EscapeScene(input);
         }
     }
 }
