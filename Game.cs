@@ -28,7 +28,7 @@ namespace OOPConsoleProject
             sceneDic.Add("Ship", new ShipScene());
             sceneDic.Add("Cockpit", new CockpitScene());
             // sceneDic.Add("GalaxyInfo", new GalaxyInfoScene());
-            sceneDic.Add("GalaxyResult", new GalaxyResultScene());
+            // sceneDic.Add("GalaxyResult", new GalaxyResultScene());
 
 
             curScene = sceneDic["Title"];
@@ -63,6 +63,13 @@ namespace OOPConsoleProject
             curScene.Enter();
         }
 
+        public static void ChangeScene(BaseScene scene)
+        {
+            curScene.Exit();
+            curScene = scene;
+            curScene.Enter();
+        }
+
         public static void PushScene(BaseScene scene)
         {
             sceneStack.Push(curScene);
@@ -86,5 +93,11 @@ namespace OOPConsoleProject
                 Thread.Sleep(500);
             }    
         }
+
+        public static void SceneStackClear()
+        {
+            sceneStack.Clear();
+        }
+
     }
 }
