@@ -56,12 +56,12 @@ namespace OOPConsoleProject.Scenes
                 
             if (map.FuelPosition.Contains(dronePos))
             {
-                if (addon.Grade == AddonGrade.Basic)
+                if (addon.Grade == AddonGrade.Basic && addon.Type == AddonType.Fuel)
                 {
                     int collect = 1;
                     ResourceManager.ChargeFuel(collect);
                 }
-                else if (addon.Grade == AddonGrade.AlienTech)
+                else if (addon.Grade == AddonGrade.AlienTech && addon.Type == AddonType.Fuel)
                 {
                     int collect = 3;
                     ResourceManager.ChargeFuel(collect);
