@@ -44,7 +44,7 @@ namespace OOPConsoleProject.Scenes
                     if (TravelState.IsConnected(nodeInfo.Id))
                     {
                         Console.WriteLine("이동합니다.");
-                        Game.ChangeScene("GalaxyResult");
+                        Game.ChangeScene(new GalaxyResultScene(nodeInfo));
                     }
                     else if (!TravelState.IsConnected(nodeInfo.Id) && nodeInfo.Id != TravelState.CurrentNodeId)
                     {
