@@ -14,12 +14,14 @@ namespace OOPConsoleProject.Scenes
         FuelCollectMap map;
         CollectMapDrone drone;
         Addon addon;
+        GalaxyNodeInfo nodeInfo;
 
-        public FuelCollectionScene(Addon addon)
+        public FuelCollectionScene(Addon addon, GalaxyNodeInfo nodeInfo)
         {
             name = "FuelCollection";
 
             this.addon = addon;
+            this.nodeInfo = nodeInfo;
 
             map = new FuelCollectMap();
             drone = new CollectMapDrone(1, 3);
@@ -78,13 +80,11 @@ namespace OOPConsoleProject.Scenes
 
                 if (dronePos == (1, 3))
                 {
+                    nodeInfo.IsFarmed = true;
                     Game.PopScene();
                 }
 
             }
-
-
         }
-
     }
 }

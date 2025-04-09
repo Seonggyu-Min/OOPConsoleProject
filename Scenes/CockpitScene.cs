@@ -48,8 +48,9 @@ namespace OOPConsoleProject.Scenes
         public override void Result()
         {
             var pointerPos = (galaxyMapPointer.PointerPosition.x, galaxyMapPointer.PointerPosition.y);
-            if (galaxyMap.GalaxyRoom.TryGetValue(pointerPos, out GalaxyNodeInfo nodeInfo) && input == ConsoleKey.E)
+            if (TravelState.GalaxyNodePositionMap.TryGetValue(pointerPos, out int nodeId) && input == ConsoleKey.E)
             {
+                GalaxyNodeInfo nodeInfo = TravelState.GetNodeInfo(nodeId);
                 Game.PushScene(new GalaxyInfoScene(nodeInfo));
             }
             Util.EscapeScene(input);
