@@ -17,6 +17,7 @@ namespace OOPConsoleProject.Scenes
 
         public override void Render()
         {
+            // TODO 출력 안됨
             Console.WriteLine($"{nodeInfo.Name} 은하계로 이동합니다.");
             Console.WriteLine("연료가 3만큼 소모되었습니다.");
             Console.WriteLine("산소가 3만큼 소모되었습니다.");
@@ -35,6 +36,19 @@ namespace OOPConsoleProject.Scenes
         }
         public override void Result()
         {
+            if (nodeInfo.LocationType == "OxygenEncounter" || nodeInfo.LocationType == "FuelEncounter")
+            {
+                Game.ChangeScene(new EncounterScene(nodeInfo));
+                Game.SceneStackClear();
+                return;
+            }
+
+            if (nodeInfo.LocationType == "End")
+            {
+                Game.ChangeScene("Ending");
+                return;
+            }
+
             Game.ChangeScene("Ship");
             Game.SceneStackClear();
         }
