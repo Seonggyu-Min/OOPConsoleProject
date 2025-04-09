@@ -61,6 +61,7 @@ namespace OOPConsoleProject.Scenes
                         break;
                 case ConsoleKey.N:
                     Console.WriteLine("취소합니다.");
+                    Util.ReadKey();
                     Util.EscapeSceneWOKey();
                     break;
             }
