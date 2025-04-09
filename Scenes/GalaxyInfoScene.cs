@@ -34,26 +34,36 @@ namespace OOPConsoleProject.Scenes
         }
         public override void Update()
         {
-            switch (input)
-            {
-                case ConsoleKey.Y:
-                    Console.WriteLine("이동합니다.");
-                    break;
-                case ConsoleKey.N:
-                    Console.WriteLine("취소합니다.");
-                    break;
-            }
-
-            switch (nodeInfo.LocationType)
-            {
-                case "Fuel":
-
-            }
-
+            
         }
         public override void Result()
         {
-
+            switch (input)
+            {
+                case ConsoleKey.Y:
+                    if (TravelState.IsConnected(nodeInfo.Id))
+                    {
+                        Console.WriteLine("이동합니다.");
+                        Game.ChangeScene("GalaxyResult");
+                    }
+                    else if (!TravelState.IsConnected(nodeInfo.Id) && nodeInfo.Id != TravelState.CurrentNodeId)
+                    {
+                        Console.WriteLine("해당 은하계는 너무 멀리 있어 이동할 수 없습니다.");
+                        Console.WriteLine("성간 지도로 돌아갑니다.");
+                        Util.EscapeSceneWOKey();
+                    }
+                    else
+                    {
+                        Console.WriteLine("현재 위치와 동일한 은하계로는 이동할 수 없습니다.");
+                        Console.WriteLine("성간 지도로 돌아갑니다.");
+                        Util.EscapeSceneWOKey();
+                    }
+                        break;
+                case ConsoleKey.N:
+                    Console.WriteLine("취소합니다.");
+                    Util.EscapeSceneWOKey();
+                    break;
+            }
         }
     }
 }
