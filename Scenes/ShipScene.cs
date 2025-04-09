@@ -10,26 +10,22 @@ namespace OOPConsoleProject.Scenes
     public class ShipScene : BaseScene
     {
         private ConsoleKey input;
-        Ship ship;
-        Player player;
-        Addon addon;
-        GalaxyNodeInfo nodeInfo;
+        Addon addon; // 미사용
+        GalaxyNodeInfo nodeInfo; // 미사용
 
         public ShipScene()
         {
             name = "Ship";
-            ship = new Ship();
 
-            player = new Player(3, 3);
-            player.position = new Vector2(3, 3);
-            player.IsMovableMap = ship.Map;
+            Game.player.position = new Vector2(3, 3);
+            Game.player.IsMovableMap = Game.ship.Map;
         }
 
         public override void Render()
         {
             Console.Clear();
-            ship.PrintMap();
-            player.Print();
+            Game.ship.PrintMap();
+            Game.player.Print();
 
             Console.SetCursorPosition(0, 9);
             ResourceManager.PrintFuel();
@@ -42,17 +38,17 @@ namespace OOPConsoleProject.Scenes
         }
         public override void Update()
         {
-            player.Move(input);
+            Game.player.Move(input);
         }
 
         public override void Result()
         {
-            var playerPos = (player.position.x, player.position.y);
-            if (ship.Room.TryGetValue(playerPos, out ShipRoomLocation room))
+            var playerPos = (Game.player.position.x, Game.player.position.y);
+            if (Game.ship.Room.TryGetValue(playerPos, out ShipRoomLocation room))
             {
                 EnterRoom(room);
             }
-            if (ship.AddonLocation.TryGetValue(playerPos, out AddonType addonType))
+            if (Game.ship.AddonLocation.TryGetValue(playerPos, out AddonType addonType))
             {
                 EnterAddon(addonType);
             }
@@ -65,27 +61,28 @@ namespace OOPConsoleProject.Scenes
                 case ShipRoomLocation.Cockpit:
                     Game.PushScene(new CockpitScene());
                     break;
-                case ShipRoomLocation.AddonBay:
-                    Game.ChangeScene("AddonBay");
-                    break;
+                //case ShipRoomLocation.AddonBay:
+                //    Game.ChangeScene("AddonBay");
+                //    break;
             }
         }
 
         public void EnterAddon(AddonType addonType)
         {
-            Addon selectedAddon = ship.InstalledAddons[addonType];
+            Addon selectedAddon = Game.ship.InstalledAddons[addonType];
             GalaxyNodeInfo currentNode = TravelState.GetCurrentNodeInfo();
 
             if (currentNode.IsFarmed)
             {
                 Console.SetCursorPosition(0, 12);
-                Console.WriteLine("이미 다녀온 은하입니다.");
-                Console.ReadKey(true);
+                Util.PrintText("이미 행동을 마친 은하입니다.", ConsoleColor.Red);
+                Console.WriteLine("조타실에서 다음 은하를 선택하세요.", ConsoleColor.Red);
+                Util.ReadKey();
                 return;
             }
             if ((selectedAddon.Type == AddonType.Fuel && currentNode.LocationType == "Fuel") ||
-                (selectedAddon.Type == AddonType.Oxygen && currentNode.LocationType == "Oxygen") ||
-                (selectedAddon.Type == AddonType.Interaction && currentNode.LocationType == "Encounter"))
+                (selectedAddon.Type == AddonType.Oxygen && currentNode.LocationType == "Oxygen"))
+                //  || (selectedAddon.Type == AddonType.Interaction && currentNode.LocationType == "Encounter")
             {
                 switch (selectedAddon.Type)
                 {
@@ -107,8 +104,8 @@ namespace OOPConsoleProject.Scenes
 
                 // 디버그용
                 Console.SetCursorPosition(0, 13);
-                Console.WriteLine($"디버깅 - AddonType: {selectedAddon.Type}");
-                Console.WriteLine($"디버깅 - LocationType: {currentNode.LocationType}");
+                Console.WriteLine($"사용하고자 하는 드론의 타입: {selectedAddon.Type}");
+                Console.WriteLine($"현재 은하계의 타입: {currentNode.LocationType}");
 
                 Console.ReadKey(true);
             }
