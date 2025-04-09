@@ -15,16 +15,20 @@ namespace OOPConsoleProject
 
         public Dictionary<(int x, int y), ShipRoomLocation> Room { get; private set; }
 
+        public Dictionary<AddonType, Addon> InstalledAddons { get; private set; }
+
+        public Dictionary<(int x, int y), AddonType> AddonLocation { get; private set; }
+
         public Ship()
         {
             MapData = new char[7, 7]
             {
                 { '#', '#', '#', '#', '#', '#', '#' },
-                { '#', ' ', '#', ' ', '#', ' ', '#' },
+                { '#', 'F', '#', 'O', '#', ' ', '#' },
                 { '#', ' ', ' ', ' ', ' ', ' ', '#' },
                 { '#', 'A', ' ', ' ', ' ', 'C', '#' },
                 { '#', ' ', ' ', ' ', ' ', ' ', '#' },
-                { '#', ' ', '#', ' ', '#', ' ', '#' },
+                { '#', 'R', '#', 'I', '#', ' ', '#' },
                 { '#', '#', '#', '#', '#', '#', '#' },
             };
 
@@ -42,6 +46,24 @@ namespace OOPConsoleProject
             {
                 { (1, 3), ShipRoomLocation.AddonBay },
                 { (5, 3), ShipRoomLocation.Cockpit }
+            };
+
+
+            InstalledAddons = new Dictionary<AddonType, Addon>();
+
+            AddonFactory factory = new AddonFactory();
+            InstalledAddons[AddonType.Fuel] = factory.CreateAddon("기본 연료 포집 드론");
+            InstalledAddons[AddonType.Oxygen] = factory.CreateAddon("기본 산소 포집 드론");
+            InstalledAddons[AddonType.Interaction] = factory.CreateAddon("기본 상호작용 드론");
+            InstalledAddons[AddonType.Radar] = factory.CreateAddon("기본 레이더");
+
+            AddonLocation = new Dictionary<(int x, int y), AddonType>
+
+            {
+                { (1, 1), AddonType.Fuel },
+                { (1, 5), AddonType.Oxygen },
+                { (3, 1), AddonType.Radar },
+                { (3, 5), AddonType.Interaction }
             };
         }
         
