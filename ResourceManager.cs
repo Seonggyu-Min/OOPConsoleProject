@@ -16,8 +16,8 @@ namespace OOPConsoleProject
 
         static ResourceManager()
         {
-            Fuel = 6;
-            Oxygen = 6;
+            Fuel = 9;
+            Oxygen = 9;
 
             MaxFuel = 15;
             MaxOxygen = 15;
