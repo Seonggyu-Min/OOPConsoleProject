@@ -15,6 +15,9 @@ namespace OOPConsoleProject
         private static BaseScene curScene;
 
         private static Stack<BaseScene> sceneStack = new Stack<BaseScene>();
+        public static Ship ship { get; set; }
+        public static Player player { get; set; }
+
 
         public static void Start()
         {
@@ -24,15 +27,17 @@ namespace OOPConsoleProject
 
             sceneDic = new Dictionary<string, BaseScene>();
 
+            ship = new Ship();
+            player = new Player(3, 3);
+
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Ship", new ShipScene());
             sceneDic.Add("Cockpit", new CockpitScene());
             // sceneDic.Add("GalaxyInfo", new GalaxyInfoScene());
             // sceneDic.Add("GalaxyResult", new GalaxyResultScene());
-
+            sceneDic.Add("Ending", new EndingScene());
 
             curScene = sceneDic["Title"];
-
         }
 
         public static void Run()
