@@ -28,6 +28,8 @@ namespace OOPConsoleProject
             sceneDic.Add("Ship", new ShipScene());
             sceneDic.Add("Cockpit", new CockpitScene());
             // sceneDic.Add("GalaxyInfo", new GalaxyInfoScene());
+            sceneDic.Add("GalaxyResult", new GalaxyResultScene());
+
 
             curScene = sceneDic["Title"];
 
@@ -69,7 +71,7 @@ namespace OOPConsoleProject
             curScene.Enter();
         }
 
-        public static void PopScene(string sceneName)
+        public static void PopScene()
         {
             if (sceneStack.Count > 0)
             {
@@ -77,6 +79,12 @@ namespace OOPConsoleProject
                 curScene = sceneStack.Pop();
                 curScene.Enter();
             }
+
+            else
+            {
+                Console.WriteLine("스택이 0 - 디버그용 문구");
+                Thread.Sleep(500);
+            }    
         }
     }
 }
