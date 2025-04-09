@@ -13,13 +13,15 @@ namespace OOPConsoleProject
         public string LocationType { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public bool IsFarmed { get; set; }
 
-        public GalaxyNodeInfo(int id, string type, string name, string description)
+        public GalaxyNodeInfo(int id, string type, string name, string description, bool isFarmed)
         {
             Id = id;
             LocationType = type;
             Name = name;
             Description = description;
+            IsFarmed = isFarmed;
         }
     }
 }
