@@ -12,7 +12,7 @@ namespace OOPConsoleProject.Scenes
         Ship ship;
         Player player;
 
-        public ShipScene() 
+        public ShipScene()
         {
             name = "Ship";
             ship = new Ship();
@@ -26,8 +26,12 @@ namespace OOPConsoleProject.Scenes
         {
             Console.Clear();
             ship.PrintMap();
-
             player.Print();
+
+            Console.SetCursorPosition(0, 9);
+            ResourceManager.PrintFuel();
+            Console.WriteLine();
+            ResourceManager.PrintOxygen();
         }
         public override void Input()
         {
@@ -46,7 +50,7 @@ namespace OOPConsoleProject.Scenes
                 switch (room)
                 {
                     case ShipRoomLocation.Cockpit:
-                        Game.ChangeScene("Cockpit");
+                        Game.PushScene(new CockpitScene());
                         break;
                     case ShipRoomLocation.AddonBay:
                         Game.ChangeScene("AddonBay");
