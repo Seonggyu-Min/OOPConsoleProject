@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOPConsoleProject.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,13 +11,11 @@ namespace OOPConsoleProject
     public class Addon
     {
         public string Name { get; set; }
-
-        public string Type { get; set; }
-
-        public int Grade { get; set; }
+        public AddonType Type { get; set; }
+        public AddonGrade Grade { get; set; }
         public string Description { get; set; }
 
-        public Addon(string name, string type, int grade, string description)
+        public Addon(string name, AddonType type, AddonGrade grade, string description)
         {
             Name = name;
             Type = type;
