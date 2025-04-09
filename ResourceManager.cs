@@ -39,11 +39,15 @@ namespace OOPConsoleProject
         public static void ConsumeFuel(int amount)
         {
             Fuel -= amount;
+            if (Fuel <= 0)
+                GameManager.GameOverReason("연료가 없습니다.");
         }
 
         public static void ConsumeOxygen(int amount)
         {
             Oxygen -= amount;
+            if (Oxygen <= 0)
+                GameManager.GameOverReason("산소가 없습니다.");
         }
 
         public static void PrintOxygen()

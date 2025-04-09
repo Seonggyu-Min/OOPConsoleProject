@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace OOPConsoleProject
 {
-    public class GameManager
+    public static class GameManager
     {
-        public void GameOverReason(string reason)
+        public static void GameOverReason(string reason)
         {
-            Console.WriteLine($"{reason}의 이유로 게임오버입니다.");
+            Util.PrintText("{reason}", 100, ConsoleColor.Red);
+            Util.DelayedText("GAME OVER");
+            Console.WriteLine();
+            Util.PrintText("아무 키나 눌러 다음으로...", 100, ConsoleColor.Red);
+            Console.ReadKey(true);
             Game.gameOver = true;
         }
 
