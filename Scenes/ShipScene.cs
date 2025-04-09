@@ -106,7 +106,9 @@ namespace OOPConsoleProject.Scenes
                 Console.WriteLine("현재 은하에서는 이 드론을 사용할 수 없습니다.");
 
                 // 디버그용
-                Console.WriteLine(currentNode.LocationType);
+                Console.SetCursorPosition(0, 13);
+                Console.WriteLine($"디버깅 - AddonType: {selectedAddon.Type}");
+                Console.WriteLine($"디버깅 - LocationType: {currentNode.LocationType}");
 
                 Console.ReadKey(true);
             }
