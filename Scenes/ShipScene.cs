@@ -92,9 +92,9 @@ namespace OOPConsoleProject.Scenes
                     case AddonType.Fuel:
                         Game.PushScene(new FuelCollectionScene(selectedAddon, currentNode));
                         break;
-                    //case AddonType.Oxygen:
-                    //    Game.PushScene(new OxygenCollectionScene(selectedAddon, currentNode));
-                    //    break;
+                    case AddonType.Oxygen:
+                        Game.PushScene(new OxygenCollectionScene(selectedAddon, currentNode));
+                        break;
                     //case AddonType.Interaction:
                     //    Game.PushScene(new EncounterScene(selectedAddon, currentNode));
                     //    break;
@@ -102,9 +102,12 @@ namespace OOPConsoleProject.Scenes
             }
             else
             {
-                // 타입이 맞지 않는 경우 메시지 출력
                 Console.SetCursorPosition(0, 12);
                 Console.WriteLine("현재 은하에서는 이 드론을 사용할 수 없습니다.");
+
+                // 디버그용
+                Console.WriteLine(currentNode.LocationType);
+
                 Console.ReadKey(true);
             }
         }
