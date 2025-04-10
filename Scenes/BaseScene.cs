@@ -14,8 +14,5 @@ namespace OOPConsoleProject.Scenes
         public abstract void Input();
         public abstract void Update();
         public abstract void Result();
-
-        public virtual void Enter() { }
-        public virtual void Exit() { }
     }
 }

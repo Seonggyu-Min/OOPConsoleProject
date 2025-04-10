@@ -63,39 +63,31 @@ namespace OOPConsoleProject
 
         public static void ChangeScene(string sceneName)
         {
-            curScene.Exit();
             curScene = sceneDic[sceneName];
-            curScene.Enter();
         }
 
         public static void ChangeScene(BaseScene scene)
         {
-            curScene.Exit();
             curScene = scene;
-            curScene.Enter();
         }
 
         public static void PushScene(BaseScene scene)
         {
             sceneStack.Push(curScene);
-            curScene.Exit();
             curScene = scene;
-            curScene.Enter();
         }
 
         public static void PopScene()
         {
             if (sceneStack.Count > 0)
             {
-                curScene.Exit();
                 curScene = sceneStack.Pop();
-                curScene.Enter();
             }
 
             else
             {
                 Console.WriteLine("스택이 0 - 디버그용 문구");
-                Thread.Sleep(500);
+                Util.ReadKey();
             }    
         }
 
