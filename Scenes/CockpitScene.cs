@@ -45,6 +45,8 @@ namespace OOPConsoleProject.Scenes
             Util.PrintText("방문하고자 하는 은하계에서 E를 누르면 선택할 수 있습니다.", ConsoleColor.Cyan);
             Console.SetCursorPosition(15, 6);
             Util.PrintText("뒤로 가려면 Z키 혹은 esc키를 누르세요.", ConsoleColor.Cyan);
+            Console.SetCursorPosition(15, 8);
+            Util.PrintCurrentGalaxyInfo();
         }
         public override void Input()
         {

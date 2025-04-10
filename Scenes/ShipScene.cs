@@ -35,6 +35,8 @@ namespace OOPConsoleProject.Scenes
             Util.PrintText("O: 산소 포집 드론 파견 - 산소가 풍부한 은하계에서 산소를 수집할 수 있습니다.", ConsoleColor.Cyan);
             Console.SetCursorPosition(15, 4);
             Util.PrintText("F: 연료 포집 드론 파견 - 연료가 풍부한 은하계에서 연료를 수집할 수 있습니다.", ConsoleColor.Cyan);
+            Console.SetCursorPosition(15, 6);
+            Util.PrintCurrentGalaxyInfo();
         }
         public override void Input()
         {
