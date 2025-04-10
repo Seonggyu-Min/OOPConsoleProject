@@ -10,9 +10,6 @@ namespace OOPConsoleProject.Scenes
     public class ShipScene : BaseScene
     {
         private ConsoleKey input;
-        Addon addon; // 미사용
-        GalaxyNodeInfo nodeInfo; // 미사용
-
         public ShipScene()
         {
             name = "Ship";
@@ -102,7 +99,6 @@ namespace OOPConsoleProject.Scenes
                 Console.SetCursorPosition(0, 12);
                 Console.WriteLine("현재 은하에서는 이 드론을 사용할 수 없습니다.");
 
-                // 디버그용
                 Console.SetCursorPosition(0, 13);
                 Console.WriteLine($"사용하고자 하는 드론의 타입: {selectedAddon.Type}");
                 Console.WriteLine($"현재 은하계의 타입: {currentNode.LocationType}");
