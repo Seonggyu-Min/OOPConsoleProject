@@ -58,7 +58,7 @@ namespace OOPConsoleProject
             foreach (char c in text)
             {
                 Console.Write(c);
-                Thread.Sleep(50);
+                Thread.Sleep(100);
             }
         }
 
