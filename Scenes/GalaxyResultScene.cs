@@ -23,6 +23,7 @@ namespace OOPConsoleProject.Scenes
             Console.WriteLine("산소가 3만큼 소모되었습니다.");
             Console.WriteLine();
             Console.WriteLine($"현재 남은 연료: {ResourceManager.Fuel - 3} / 현재 남은 산소: {ResourceManager.Oxygen - 3}");
+            Util.ReadKey();
         }
         public override void Input()
         {
