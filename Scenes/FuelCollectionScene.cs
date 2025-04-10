@@ -39,6 +39,16 @@ namespace OOPConsoleProject.Scenes
             ResourceManager.PrintFuel();
             Console.WriteLine();
             ResourceManager.PrintOxygen();
+
+            Console.SetCursorPosition(15, 2);
+            Util.PrintText("WASD로 드론을 움직여 연료 * 을 모두 수집하세요!", ConsoleColor.Cyan);
+
+            if (map.FuelPosition.Count == 0)
+            {
+                Console.SetCursorPosition(15, 4);
+                Util.PrintText("모든 연료를 수집했습니다! E로 향하여 복귀하세요", ConsoleColor.Green);
+                Console.ResetColor();
+            }
         }
 
         public override void Input()
@@ -73,17 +83,11 @@ namespace OOPConsoleProject.Scenes
 
             if (map.FuelPosition.Count == 0)
             {
-                Console.SetCursorPosition(0, 15);
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("모든 연료를 수집했습니다! E로 향하여 복귀하세요");
-                Console.ResetColor();
-
                 if (dronePos == (1, 3))
                 {
                     nodeInfo.IsFarmed = true;
                     Game.PopScene();
                 }
-
             }
         }
     }
