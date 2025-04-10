@@ -12,6 +12,7 @@ namespace OOPConsoleProject
         {
             if (input == ConsoleKey.Z || input == ConsoleKey.Escape)
             {
+                Console.Clear();
                 Console.WriteLine("뒤로 갑니다");
                 ReadKey();
                 Game.PopScene();
