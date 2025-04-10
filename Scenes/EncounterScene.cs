@@ -115,11 +115,11 @@ namespace OOPConsoleProject.Scenes
             {
                 if ((input == ConsoleKey.D1) || (input == ConsoleKey.NumPad1))
                 {
-                    Incorrect(input);
+                    Correct(input);
                 }
                 else if ((input == ConsoleKey.D2) || (input == ConsoleKey.NumPad2))
                 {
-                    Correct(input);
+                    Incorrect(input);
                 }
                 else
                 {
