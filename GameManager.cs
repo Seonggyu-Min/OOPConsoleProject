@@ -10,7 +10,7 @@ namespace OOPConsoleProject
     {
         public static void GameOverReason(string reason)
         {
-            Util.PrintText("{reason}", 100, ConsoleColor.Red);
+            Util.PrintText(reason, 100, ConsoleColor.Red);
             Util.DelayedText("GAME OVER");
             Console.WriteLine();
             Util.PrintText("아무 키나 눌러 다음으로...", 100, ConsoleColor.Red);
