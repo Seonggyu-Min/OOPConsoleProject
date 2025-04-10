@@ -17,8 +17,5 @@ namespace OOPConsoleProject
             Console.ReadKey(true);
             Game.gameOver = true;
         }
-
-
-
     }
 }

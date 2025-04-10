@@ -33,8 +33,6 @@ namespace OOPConsoleProject
             sceneDic.Add("Title", new TitleScene());
             sceneDic.Add("Ship", new ShipScene());
             sceneDic.Add("Cockpit", new CockpitScene());
-            // sceneDic.Add("GalaxyInfo", new GalaxyInfoScene());
-            // sceneDic.Add("GalaxyResult", new GalaxyResultScene());
             sceneDic.Add("Ending", new EndingScene());
 
             curScene = sceneDic["Title"];

@@ -14,7 +14,7 @@ namespace OOPConsoleProject
 
         public static Dictionary<int, GalaxyNodeInfo> GalaxyNodes { get; private set; }
 
-        public static Dictionary<(int x, int y), int> GalaxyNodePositionMap { get; private set; }
+        public static Dictionary<(int x, int y), int> GalaxyNodePositionMap { get; private set; } // 자료구조 통합 혹은 좌표추가를 통한 통합 가능성
 
 
         static TravelState()

@@ -78,8 +78,6 @@ namespace OOPConsoleProject
                 Console.WriteLine();
             }
         }
-
     }
-
 }
 

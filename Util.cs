@@ -74,6 +74,5 @@ namespace OOPConsoleProject
             GalaxyNodeInfo currentNode = TravelState.GetCurrentNodeInfo();
             PrintText($"현재 은하 이름: {currentNode.Name}, 현재 은하 번호: {currentNode.Id}", ConsoleColor.Cyan);
         }
-
     }
 }
