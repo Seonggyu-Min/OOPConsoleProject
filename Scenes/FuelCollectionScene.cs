@@ -41,7 +41,7 @@ namespace OOPConsoleProject.Scenes
             ResourceManager.PrintOxygen();
 
             Console.SetCursorPosition(15, 2);
-            Util.PrintText("WASD로 드론을 움직여 연료 * 을 모두 수집하세요!", ConsoleColor.Cyan);
+            Util.PrintText("WASD 또는 방향키로 드론을 움직여 연료 * 을 모두 수집하세요!", ConsoleColor.Cyan);
 
             if (map.FuelPosition.Count == 0)
             {
@@ -63,31 +63,23 @@ namespace OOPConsoleProject.Scenes
         public override void Result()
         {
             var dronePos = (drone.DronePosition.x, drone.DronePosition.y);
-                
+
             if (map.FuelPosition.Contains(dronePos))
             {
-                if (addon.Grade == AddonGrade.Basic && addon.Type == AddonType.Fuel)
-                {
-                    int collect = 1;
-                    ResourceManager.ChargeFuel(collect);
-                }
-                else if (addon.Grade == AddonGrade.AlienTech && addon.Type == AddonType.Fuel)
-                {
-                    int collect = 3;
-                    ResourceManager.ChargeFuel(collect);
-                }
-
+                ResourceManager.ChargeFuel(1);
+                //else if (addon.Grade == AddonGrade.AlienTech && addon.Type == AddonType.Fuel)
+                //{
+                //    int collect = 3;
+                //    ResourceManager.ChargeFuel(collect);
+                //}
                 map.MapData[drone.DronePosition.y, drone.DronePosition.x] = ' ';
                 map.FuelPosition.Remove(dronePos);
             }
 
-            if (map.FuelPosition.Count == 0)
+            if (map.FuelPosition.Count == 0 && dronePos == (1, 3))
             {
-                if (dronePos == (1, 3))
-                {
-                    nodeInfo.IsFarmed = true;
-                    Game.PopScene();
-                }
+                nodeInfo.IsFarmed = true;
+                Game.PopScene();
             }
         }
     }

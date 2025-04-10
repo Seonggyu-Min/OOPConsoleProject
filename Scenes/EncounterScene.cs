@@ -92,8 +92,8 @@ namespace OOPConsoleProject.Scenes
             }
 
             nodeInfo.IsFarmed = true;
-            Game.ChangeScene("Ship");
             Game.SceneStackClear();
+            Game.ChangeScene("Ship");
         }
     }
 }

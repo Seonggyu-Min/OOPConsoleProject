@@ -20,8 +20,7 @@ namespace OOPConsoleProject.Scenes
 
         public override void Input()
         {
-            Console.WriteLine("\n게임을 종료하려면 아무 키나 누르세요...");
-            Console.ReadKey(true);
+            Util.ReadKey();
         }
 
         public override void Update() { }

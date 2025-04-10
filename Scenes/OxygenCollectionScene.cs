@@ -42,7 +42,7 @@ namespace OOPConsoleProject.Scenes
             ResourceManager.PrintOxygen();
 
             Console.SetCursorPosition(15, 2);
-            Util.PrintText("WASD로 드론을 움직여 산소 & 을 모두 수집하세요!", ConsoleColor.Cyan);
+            Util.PrintText("WASD 또는 방향키로 드론을 움직여 산소 & 을 모두 수집하세요!", ConsoleColor.Cyan);
 
             if (map.OxygenPosition.Count == 0)
             {
@@ -68,26 +68,19 @@ namespace OOPConsoleProject.Scenes
 
             if (map.OxygenPosition.Contains(dronePos))
             {
-                if (addon.Grade == AddonGrade.Basic && addon.Type == AddonType.Oxygen)
-                {
-                    int collect = 1;
-                    ResourceManager.ChargeOxygen(collect);
-                }
-                else if (addon.Grade == AddonGrade.AlienTech && addon.Type == AddonType.Oxygen)
-                {
-                    int collect = 3;
-                    ResourceManager.ChargeOxygen(collect);
-                }
+                ResourceManager.ChargeOxygen(1);
+                //else if (addon.Grade == AddonGrade.AlienTech && addon.Type == AddonType.Oxygen)
+                //{
+                //    int collect = 3;
+                //    ResourceManager.ChargeOxygen(collect);
+                //}
                 map.MapData[drone.DronePosition.y, drone.DronePosition.x] = ' ';
                 map.OxygenPosition.Remove(dronePos);
             }
-            if (map.OxygenPosition.Count == 0)
+            if (map.OxygenPosition.Count == 0 && dronePos == (1, 3))
             {
-                if (dronePos == (1, 3))
-                {
-                    nodeInfo.IsFarmed = true;
-                    Game.PopScene();
-                }
+                nodeInfo.IsFarmed = true;
+                Game.PopScene();
             }
         }
 
