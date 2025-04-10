@@ -28,6 +28,13 @@ namespace OOPConsoleProject.Scenes
             ResourceManager.PrintFuel();
             Console.WriteLine();
             ResourceManager.PrintOxygen();
+
+            Console.SetCursorPosition(15, 2);
+            Util.PrintText("C: 조타실 - 다음 은하계로 이동할 수 있습니다.", ConsoleColor.Cyan);
+            Console.SetCursorPosition(15, 3);
+            Util.PrintText("O: 산소 포집 드론 파견 - 산소가 풍부한 은하계에서 산소를 수집할 수 있습니다.", ConsoleColor.Cyan);
+            Console.SetCursorPosition(15, 4);
+            Util.PrintText("F: 연료 포집 드론 파견 - 연료가 풍부한 은하계에서 연료를 수집할 수 있습니다.", ConsoleColor.Cyan);
         }
         public override void Input()
         {

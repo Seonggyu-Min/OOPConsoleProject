@@ -36,6 +36,15 @@ namespace OOPConsoleProject.Scenes
             ResourceManager.PrintFuel();
             Console.WriteLine();
             ResourceManager.PrintOxygen();
+
+            Console.SetCursorPosition(15, 3);
+            Util.PrintText("이 곳은 이동할 은하계를 선택할 수 있는 지도입니다.", ConsoleColor.Cyan);
+            Console.SetCursorPosition(15, 4);
+            Util.PrintText("WASD 혹은 방향키로 포인터를 이동하세요", ConsoleColor.Cyan);
+            Console.SetCursorPosition(15, 5);
+            Util.PrintText("방문하고자 하는 은하계에서 E를 누르면 선택할 수 있습니다.", ConsoleColor.Cyan);
+            Console.SetCursorPosition(15, 6);
+            Util.PrintText("뒤로 가려면 Z키 혹은 esc키를 누르세요.", ConsoleColor.Cyan);
         }
         public override void Input()
         {
