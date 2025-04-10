@@ -20,6 +20,7 @@ namespace OOPConsoleProject
         }
         public static void EscapeSceneWOKey()
         {
+            Console.Clear();
             Console.WriteLine("뒤로 갑니다");
             ReadKey();
             Game.PopScene();
