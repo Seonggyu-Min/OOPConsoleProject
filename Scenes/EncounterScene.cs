@@ -51,8 +51,7 @@ namespace OOPConsoleProject.Scenes
                     Console.WriteLine();
                     Util.DelayedText("어떻게 알았지...?");
                     Util.PrintText("네게 보상을 주겠다...", 200, ConsoleColor.Green);
-                    Console.WriteLine("아무 키나 눌러 다음으로...");
-                    Console.ReadKey(true);
+                    Util.ReadKey();
                     break;
                 case ConsoleKey.D2:
                 case ConsoleKey.NumPad2:
@@ -61,8 +60,7 @@ namespace OOPConsoleProject.Scenes
                     Console.WriteLine();
                     Util.DelayedText("틀렸다!!!");
                     Util.PrintText("보상을 줄 수 없을 것 같네...", 200, ConsoleColor.Red);
-                    Console.WriteLine("아무 키나 눌러 다음으로...");
-                    Console.ReadKey(true);
+                    Util.ReadKey();
                     break;
                 default:
                     Console.WriteLine("잘못된 입력입니다.");
@@ -83,15 +81,13 @@ namespace OOPConsoleProject.Scenes
                 {
                     ResourceManager.ChargeFuel(5);
                     Util.PrintText("[보상] 연료 5을 받았습니다!", 300, ConsoleColor.Cyan);
-                    Console.WriteLine("아무 키나 눌러 다음으로...");
-                    Console.ReadKey(true);
+                    Util.ReadKey();
                 }
                 else if (nodeInfo.LocationType == "OxygenEncounter")
                 {
                     ResourceManager.ChargeOxygen(5);
                     Util.PrintText("[보상] 산소 5을 받았습니다!", 300, ConsoleColor.Cyan);
-                    Console.WriteLine("아무 키나 눌러 다음으로...");
-                    Console.ReadKey(true);
+                    Util.ReadKey();
                 }
             }
 
